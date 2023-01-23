@@ -1,28 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {ProductCard} from '@/components/ProductCard'
 import {Filters} from '@/modules/products/components/Filters'
 import {useRouter} from "next/router";
+import {ProductApi} from "@/types/api";
+import Head from "next/head";
 
-export const Products = () => {
-  const products = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+interface Props {
+  defaultProducts: ProductApi[]
+}
+
+export const Products = ({defaultProducts}: Props) => {
+  const [products, setProducts] = useState(defaultProducts)
   const router = useRouter();
 
   const onCardClick = (id: string) => router.push('/product/' + id)
 
   return (
     <div>
+      <Head>
+        <title>Список товаров</title>
+      </Head>
       <div className="flex flex-row h-full">
         <Filters />
         <div className="flex gap-10 m-10 flex-wrap flex-row justify-evenly">
-          {products.map((key) =>
+          {products.map(({id, title, rating, price}) =>
             <ProductCard
-              key={key}
-              id="1"
-              price="1 000"
-              rating={5}
-              title="Название товара"
+              key={id}
+              id={id}
+              price={price}
+              rating={rating}
+              title={title}
               imageUrl=""
-              onClick={() => onCardClick("1")}
+              onClick={() => onCardClick(id)}
             />
           )}
         </div>
