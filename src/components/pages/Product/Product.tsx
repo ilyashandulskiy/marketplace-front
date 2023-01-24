@@ -4,6 +4,7 @@ import {Rating} from "@/components/Rating";
 import {useToast} from "@/hooks/useToast";
 import {ProductDetailsApi} from "@/types/api";
 import Head from "next/head";
+import {money} from "@/utils/money";
 
 interface Props {
   defaultProduct: ProductDetailsApi
@@ -31,10 +32,10 @@ export const Product = ({defaultProduct: {title, id, description, price, rating}
           <div>
             <div className="flex justify-between py-5">
               <h1 className="text-4xl">{title}</h1>
-              <Rating size={40} />
+              <Rating rating={rating} size={40} />
             </div>
             <div>
-              <h2 className="text-5xl">{price} руб</h2>
+              <h2 className="text-5xl">{money(price).format()}</h2>
               <p className="mt-10 text-xl">{description}</p>
               <p className="mt-10">Вес: 10 грамм</p>
               <p className="mt-1">Размер: 10 х 10 х 10 мм</p>

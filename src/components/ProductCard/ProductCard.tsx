@@ -1,6 +1,6 @@
 import React from 'react'
 import {Rating} from '../Rating'
-import {useRouter} from "next/router";
+import {money} from "@/utils/money";
 
 interface Props {
   id: string
@@ -13,8 +13,6 @@ interface Props {
 
 export const ProductCard = ({ title, price, rating, imageUrl, id, onClick }: Props) => {
 
-  const router = useRouter();
-
   return (
     <div
       onClick={onClick}
@@ -22,8 +20,8 @@ export const ProductCard = ({ title, price, rating, imageUrl, id, onClick }: Pro
     >
       <div className="bg-gray-300 w-full h-52" />
       <div className="w-full flex flex-row justify-evenly">
-        <h1 className="text-xl text-center p-2">{price} руб</h1>
-        <Rating />
+        <h1 className="text-xl text-center p-2">{money(price).format()}</h1>
+        <Rating rating={rating} />
       </div>
       <h1 className="text-l w-full text-center p-2">{title}</h1>
     </div>
