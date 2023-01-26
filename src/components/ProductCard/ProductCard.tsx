@@ -18,7 +18,7 @@ export const ProductCard = ({ title, price, rating, imageUrl, id, onClick }: Pro
       onClick={onClick}
       className="shadow-xl w-52 h-80 bg-white hover:scale-105 active:scale-95 transition rounded cursor-pointer"
     >
-      <img src={imageUrl} className="bg-gray-300 w-full h-52" />
+      <img alt={title} src={imageUrl} className="bg-gray-300 w-full h-52" />
       <div className="w-full flex flex-row justify-evenly">
         <h1 className="text-xl text-center p-2">{money(price).format()}</h1>
         <Rating rating={rating} />
