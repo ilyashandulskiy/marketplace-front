@@ -1,6 +1,7 @@
 {
   "name": "marketplace-front",
   "version": "0.1.0",
+  "author": "ilyashandulskiy",
   "private": true,
   "scripts": {
     "dev": "next dev",
