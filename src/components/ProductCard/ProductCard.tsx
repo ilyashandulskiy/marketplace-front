@@ -16,14 +16,16 @@ export const ProductCard = ({ title, price, rating, imageUrl, id, onClick }: Pro
   return (
     <div
       onClick={onClick}
-      className="shadow-xl w-52 h-80 bg-white hover:scale-105 active:scale-95 transition rounded overflow-hidden cursor-pointer"
+      className="shadow-xl w-52 h-80 bg-white hover:scale-105 active:scale-95 transition rounded cursor-pointer"
     >
-      <div className="bg-gray-300 w-full h-52" />
+      <img src={imageUrl} className="bg-gray-300 w-full h-52" />
       <div className="w-full flex flex-row justify-evenly">
         <h1 className="text-xl text-center p-2">{money(price).format()}</h1>
         <Rating rating={rating} />
       </div>
-      <h1 className="text-l w-full text-center p-2">{title}</h1>
+      <div className="p-2">
+        <h1 className="text-l w-full text-center limitedText">{title}</h1>
+      </div>
     </div>
   )
 }

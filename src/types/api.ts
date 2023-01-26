@@ -15,7 +15,7 @@ export interface ProductDetailsApi {
   title: string
   price: string
   rating: number
-  imagesUrl?: string[]
+  imageUrl: string
   description: string
   weightKg?: number
   amount: number

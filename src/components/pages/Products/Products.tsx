@@ -23,14 +23,14 @@ export const Products = ({defaultProducts}: Props) => {
       <div className="flex flex-row h-full">
         <Filters />
         <div className="flex gap-10 m-10 flex-wrap flex-row justify-evenly">
-          {products.map(({id, title, rating, price}) =>
+          {products.map(({id, title, rating, price, imageUrl}) =>
             <ProductCard
               key={id}
               id={id}
               price={price}
+              imageUrl={imageUrl}
               rating={rating}
               title={title}
-              imageUrl=""
               onClick={() => onCardClick(id)}
             />
           )}
