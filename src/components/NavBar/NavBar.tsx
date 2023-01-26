@@ -12,7 +12,7 @@ export const NavBar = () => {
 
   return (
     <div className="w-full flex justify-center pt-5">
-      <Link href="/products">
+      <Link href="/">
         <h1 className="text-4xl font-bold absolute left-5">LOGO</h1>
       </Link>
       <SearchBar onSearch={onSearch} />

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const axiosInstance = axios.create({baseURL: 'http://localhost:9601'})
+const axiosInstance = axios.create({baseURL: process.env.NEXT_PUBLIC_API_URL})
 
 export const http = {
   async get<T>(url: string) {
